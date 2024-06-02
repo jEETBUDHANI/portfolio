@@ -1,0 +1,165 @@
+#home {
+  height: 90vh; /* Sets the height of the home section to 90% of the viewport height */
+  width: 100%; /* Sets the width of the home section to 100% of its container */
+  display: flex; /* Displays the contents of the home section as a flexbox */
+}
+
+#home > section {
+  width: 100%; /* Sets the width of each section within the home section to 100% */
+}
+
+#home > section:first-of-type {
+  /* Styles for the first section within the home section */
+  padding-left: $p;
+
+  >div {
+    border-top:1px solid $color6_2;
+    height:100%;
+    padding-top:6rem;
+    >h1{
+      font:900 4 rem $text1;
+    }
+    .typewriterpara{
+      margin:20px 0;
+      height:20px;
+      letter-spacing: 5px;
+    }
+    > div{
+      display:flex;
+      margin:5rem 0;
+      width:70%;
+      gap:4rem;
+      align-items:center;
+      >a {
+        &:first-of-type{
+          background-color:$color3;
+          color:$color1;
+          padding: 1rem 2rem;
+          transition: all 0.3s;
+          &:hover{
+            background-color:black;
+          }
+        }
+        &:last-of-type{
+          font:600 1.2rem $text2;
+          color:$color5;
+          display:flex;
+          align-items: center;
+          
+        }
+      }
+    }
+    aside{
+      display: flex;
+      justify-content: space-between;
+      width:70%;
+    }
+    
+    article{
+      margin:2rem 0;
+      width:10rem;
+      color:$color5;
+      position: relative;
+      &::after{
+        content:"";
+        background-color: $color4;
+        width: 100%;
+        height:5rem;
+        border-radius: 50px;
+        position: absolute;
+        z-index:-1;;
+        top:20%;
+        left:20%
+      }
+
+
+      >p{
+        font:900 2rem $text2;
+      }
+        .typewriterpara{
+          margin:20px 0;
+          height:20px;
+          letter-spacing: 5px;
+        
+      }
+      
+      >span{
+        font:500 1rem $text2;
+      }
+
+    }
+    article[data-special]{
+      width: 16rem;
+    }
+  }
+}
+
+#home > section:last-of-type {
+  border-top: 1px solid $color6_2; /* Adds a top border to the last section */
+  padding-bottom: 30vh;
+  
+  display: flex; /* Displays the last section as a flexbox */
+  flex-direction: column; /* Sets the direction of the flexbox to column */
+  justify-content: flex-end; /* Aligns items to the end of the column */
+  align-items: center; /* Aligns items to the center horizontally */
+  overflow-x: hidden; /* Hides horizontal overflow */
+}
+
+#home > section:last-of-type::after {
+  content: " "; /* Adds content after the last section */
+  height: 100px; /* Example height */
+  
+  position: absolute; /* Positions the pseudo-element absolutely */
+  background-color: #f5550a; /* Sets the background color of the pseudo-element */
+  z-index: -1; /* Sets the stack order of the pseudo-element */
+  border-color: black; /* Sets the color of the border of the pseudo-element */
+  border: 70%; /* Sets the border of the pseudo-element */
+}
+
+#home > section:last-of-type > img {
+  width: 25vmax; /* Sets the initial width of the image within the last section */
+  object-fit: contain; /* Scales the image to fit its container while preserving its aspect ratio */
+  height: 25vmax; /* Sets the initial height of the image within the last section */
+  border-radius: 55%; /* Sets the border-radius of the image */
+  border: 5px solid rgb(247, 116, 9); /* Sets the border color to orange */
+  filter: grayscale(100%); /* Applies grayscale effect initially */
+  box-shadow: 0 0 20px 5px rgb(240, 112, 8); /* Adds an orange color shadow to the image */
+  animation: imageScale 5s infinite alternate, imageFilter 5s infinite alternate; /* Applies animations for image scaling and filter */
+}
+
+@keyframes imageScale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes imageFilter {
+  0% {
+    filter: grayscale(100%);
+  }
+  100% {
+    filter: grayscale(0%);
+  }
+}
+
+#home > svg {
+  position: absolute; /* Positions the SVG element absolutely */
+  font-size: 4rem; /* Sets the font size of the SVG element */
+  color: $color5; /* Sets the color of the SVG element */
+  left: 50%; /* Sets the distance from the left edge of the container to the left edge of the SVG element */
+  bottom: 5%; /* Sets the distance from the bottom edge of the container to the bottom edge of the SVG element */
+  transform: translateX(-50%); /* Moves the SVG element 50% of its own width to the left */
+  animation: animateSvg 0.7s infinite linear alternate; /* Applies an animation to the SVG element */
+}
+
+@keyframes animateSvg {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
